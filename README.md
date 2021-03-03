@@ -1,10 +1,10 @@
 # VHM
 Vehicle Management System
 
-##Requirements- 
+## Requirements- 
 Node.js
 
-##How to Run-
+## How to Run-
 open the project folder
 run 'npm install'
 run 'node app.js'
