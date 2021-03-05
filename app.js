@@ -3,8 +3,23 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
+const mysql = require("mysql");
 
 
+
+const connection = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: 'put_your_password_here',
+    database: 'database_name'
+});
+
+connection.connect(function(err){
+    if(err)
+    console.log(err);
+    else
+    console.log("Connected to the databse!!");
+});
 
 const app = express();
 
