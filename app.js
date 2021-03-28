@@ -10,9 +10,10 @@ const mysql = require("mysql");
 const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: 'put_your_password_here',
-    database: 'database_name',
-    multipleStatements: true
+    password: 'password',
+    database: 'fastag',
+    multipleStatements: true, 
+    insecureAuth : true
 });
 
 connection.connect(function(err){
