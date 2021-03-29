@@ -1,38 +1,39 @@
+
 <%- include('partials/header') %>
 <div class="logo">
   <img src="https://www.deccanherald.com/sites/dh/files/styles/article_detail/public/article_images/2019/12/26/file786rxxg81xcthk0x2s7-1577354327.jpg?itok=JyqlbqOF" alt="fastag">
 </div>
 
-<form class="register">
+<form class="register" action="/register" method="post">
     <h1 class="h3 mb-3 fw-normal">Register here</h1>
     <label for="inputEmail" class="visually-hidden">Email address</label>
-    <input type="email" id="inputEmail" class="form-control" placeholder="Your Mail" required autofocus>
+    <input type="email" id="inputEmail" class="form-control" placeholder="Your Mail" required autofocus name="email">
 
 
     <label for="inputPassword" class="visually-hidden">Password</label>
-    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required name="password">
 
     
     <label for="inputDLNumber" class="visually-hidden">DL Number</label>
-    <input type="text" id="inputDLNumber" class="form-control" placeholder="DLNumber" required>
+    <input type="text" id="inputDLNumber" class="form-control" placeholder="DLNumber" required name="dlNumber">
 
     <label for="inputName" class="visually-hidden">Name</label>
-    <input type="text" id="inputName" class="form-control" placeholder="Name" required>
+    <input type="text" id="inputName" class="form-control" placeholder="Name" required name="name">
 
     <label for="inputAddress" class="visually-hidden">Adress</label>
-    <input type="text" id="inputAddress" class="form-control" placeholder="Address" required>
+    <input type="text" id="inputAddress" class="form-control" placeholder="Address" required name="address"> 
 
     <label for="inputContact" class="visually-hidden">Contact</label>
-    <input type="text" id="inputContact" class="form-control" placeholder="Contact" required>
+    <input type="text" id="inputContact" class="form-control" placeholder="Contact" required name="contact">
 
     <label for="inputChasis" class="visually-hidden">Chasis Number</label>
-    <input type="text" id="inputName" class="form-control" placeholder="Chasis" required>
+    <input type="text" id="inputName" class="form-control" placeholder="Chasis" required name="chasisNumber">
 
     <label for="inputVehiclePlate" class="visually-hidden">Vehicle plate number</label>
-    <input type="text" id="inputVehiclePlate" class="form-control" placeholder="VehiclePlate" required>
+    <input type="text" id="inputVehiclePlate" class="form-control" placeholder="VehiclePlate" required name="plateNumber">
 
     <label for="inputVehicle" class="visually-hidden">Vehicle Type</label>
-    <input type="text" id="inputVehicle" class="form-control" placeholder="Vehicle(Heavy or light vehicle)" required>
+    <input type="text" id="inputVehicle" class="form-control" placeholder="Vehicle(Heavy or light vehicle)" required name="vehicleType">
 
     
 
@@ -42,4 +43,4 @@
 
  
 
-<%- include('partials/footer') %>  
+<%- include('partials/footer') %>
