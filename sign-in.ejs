@@ -1,0 +1,32 @@
+
+<%- include('partials/header') %>
+<div class="logo">
+  <img src="https://www.deccanherald.com/sites/dh/files/styles/article_detail/public/article_images/2019/12/26/file786rxxg81xcthk0x2s7-1577354327.jpg?itok=JyqlbqOF" alt="fastag">
+</div>
+<main class="sign-in">
+<form action="/sign-in" method="post">
+   
+    <h1 class="h3 mb-3 fw-normal">Sign in Page</h1>
+    <label for="inputEmail" class="visually-hidden">Email address</label>
+    <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus name="email">
+    
+    
+    <label for="inputPassword" class="visually-hidden">Password</label>
+    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required name="password">
+    
+    
+    <div class="checkbox mb-3">
+      <!--<label>
+        <input type="checkbox" value="remember-me"> Remember me
+      </label>
+    </div>-->
+
+    
+    <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+    
+  </form>
+</main>
+
+
+
+<%- include('partials/footer') %>
