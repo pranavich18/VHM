@@ -12,6 +12,7 @@ const saltRounds = 10;
 const stripe = require('stripe')(process.env.SECRET_KEY)
 
 var token='';
+var dl_no = '';
 
 
 const connection = mysql.createConnection({
@@ -55,15 +56,17 @@ app.get("/sign-in",function(req,res){
     res.render("sign-in");
 });
 
+app.get("/success",function(req,res){
+    res.render("success");
+});
+
 app.get("/dashboard",function(req,res){
     jwt.verify(token, "SecretKey", function(err,decoded){
         if(err){
-            console.log(decoded);
             res.render("sign-in");
             console.log("Log-In again");
         }
         else{
-            console.log(decoded);
             let name= '';
             let contact='';
             let address = '';
@@ -71,7 +74,7 @@ app.get("/dashboard",function(req,res){
             let pno='';
             let vtype='';
             let balance = 0.0;
-            var dl_no = decoded.dl_no;
+            dl_no = decoded.dl_no;
             connection.query('SELECT * FROM user WHERE dl_no = ?', dl_no, function(err,rows){
                 if(err){
                     console.log(err);
@@ -206,7 +209,41 @@ app.post("/sign-in",function(req,res){
     });
 });
 
+app.post("/success",function(req, res){
+    res.redirect("dashboard");
+})
 
+app.post("/payment",function(req,res){
+    stripe.customers.create({
+        email: req.body.stripeEmail,
+        source: req.body.stripeToken,
+        name: 'Fastag'
+
+    })
+    .then((customer)=>{
+        return stripe.charges.create({
+            amount: 10000,
+            description: 'A recharge of INR 100 to your  Fastag vehicle.',
+            currency: 'INR',
+            customer: customer.id
+        })
+    })
+    .then((charge)=>{
+        console.log(charge);
+        connection.query('UPDATE balance SET balance_amt = balance_Amt+100.0 WHERE dl_no = ?', dl_no,function(err,result){
+            if(err){
+                console.log(err);
+                res.redirect("dashboard");
+            }
+            else{
+                res.render("success");
+            }
+        });
+    })
+    .catch((err)=>{
+        console.log(err);
+    })
+});
 
 
 
