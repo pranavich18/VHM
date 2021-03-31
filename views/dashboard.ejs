@@ -39,8 +39,12 @@
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo01">
           <ul class="navbar-nav">
+
           </ul>
-      </div> 
+      </div>
+      <form action="/dashboard" method="POST" class="form-inline my-2 my-lg-0">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Logout</button>
+      </form> 
     </nav>
 </head>
 <body>
@@ -49,9 +53,10 @@
     <div class="card">
         <h5 class="card-header" style="text-align: center;">Current Balance</h5>
         <div class="card-body">
-          <p class="card-text" style="text-align: center;">Your current balance is <%= balance %> </p>
-          <div class="text-center">
-            <form action="payment" method="POST"> 
+          <p class="card-text" style="text-align: center;">Your current balance is <%= balance %> </p></div>
+        </div>
+        <div style="text-align: center;">
+            <form style=" display: inline-block; margin-left: auto; margin-right: auto; text-align: left;" action="/payment" method="POST"> 
               <script
                   src="//checkout.stripe.com/v2/checkout.js"
                   class="stripe-button"
@@ -62,11 +67,9 @@
                   data-description="Recharge your fastag vehicle." 
                   data-locale="auto" > 
                   </script> 
-              </form> 
-            <a href="#" class="btn btn-primary">Add money</a>
-          </div>
-        </div>
-      </div><br><br> 
+              </form> </div>
+        <!--</div>
+      </div>--><br><br> 
     <h2 style="text-align: center;">User Details</h2>
     <table class="table table-hover center">
         <tbody style="width: fit-content;">

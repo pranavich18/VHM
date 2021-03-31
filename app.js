@@ -63,7 +63,7 @@ app.get("/success",function(req,res){
 app.get("/dashboard",function(req,res){
     jwt.verify(token, "SecretKey", function(err,decoded){
         if(err){
-            res.render("sign-in");
+            res.redirect("sign-in");
             console.log("Log-In again");
         }
         else{
@@ -245,7 +245,11 @@ app.post("/payment",function(req,res){
     })
 });
 
-
+app.post("/dashboard",function(req,res){
+    res.clearCookie('token');
+    token='';
+    res.redirect("/");
+});
 
 
 app.listen (3000,() => {
