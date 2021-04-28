@@ -11,11 +11,11 @@ const jwt = require("jsonwebtoken");
 const cookieParser = require('cookie-parser');
 
 // routes included
-const auth = require('./api/routes/authentication');
-const pay = require('./api/routes/payment');
-const user = require('./api/routes/user');
+const auth = require('./utility/authentication');
+const pay = require('./utility/payment');
+const user = require('./utility/user');
 
-
+const PORT = process.env.PORT || 3000;
 
 const app = express();
 
@@ -72,6 +72,6 @@ app.post("/payment", auth.validate,pay.transaction);
 app.post("/logout", auth.logout);
 
 
-app.listen (3000,() => {
+app.listen (PORT,() => {
         console.log("Server running on Port 3000");
 });
