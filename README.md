@@ -7,6 +7,8 @@ Node.js
 ## How to Run-
 open the project folder
 
+Don't forget to put the necessary values in a .env file in /config . 
+
 
 run 'npm install'
 
